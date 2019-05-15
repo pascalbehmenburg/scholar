@@ -13,7 +13,7 @@ class CreateSubstitutionScheduleTable extends Migration
      */
     public function up()
     {
-        Schema::create('substitution_schedule', function (Blueprint $table) {
+        Schema::create('substitution_schedules', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('date');
             $table->json('content');
@@ -27,6 +27,6 @@ class CreateSubstitutionScheduleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('substitution_schedule');
+        Schema::dropIfExists('substitution_schedules');
     }
 }

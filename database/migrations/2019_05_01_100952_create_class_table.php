@@ -13,7 +13,7 @@ class CreateClassTable extends Migration
      */
     public function up()
     {
-        Schema::create('class', function (Blueprint $table) {
+        Schema::create('classes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 4);
             $table->bigInteger('room_id');

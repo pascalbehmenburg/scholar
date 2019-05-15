@@ -45,11 +45,11 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3307'),
+            'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'scholar'),
             'username' => env('DB_USERNAME', 'homestead'),
             'password' => env('DB_PASSWORD', ''),
-            'unix_socket' => env('DB_SOCKET', '/run/mysqld/mysqld.sock'),
+            'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
