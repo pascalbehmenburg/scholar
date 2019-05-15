@@ -9,11 +9,11 @@ class CreateSubstitutionScheduleTable extends Migration
     /**
      * Run the migrations.
      *
-     * @return voidreason
+     * @return void
      */
     public function up()
     {
-        Schema::create('substitution_schedules', function (Blueprint $table) {
+        Schema::create('replacement_schedule', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('date');
             $table->json('content');

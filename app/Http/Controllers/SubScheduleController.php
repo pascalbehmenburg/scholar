@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Schedule;
-use App\SubSchedule;
+use App\ReplacementSchedule;
 use Illuminate\Http\Request;
 
 class SubScheduleController extends Controller
@@ -20,11 +20,11 @@ class SubScheduleController extends Controller
      */
     public function index()
     {
-        return view('/substitution-schedule')->with('sub_schedule_content', SubSchedule::getSubScheduleData());
+        return view('/substitution-schedule')->with('sub_schedule_content', ReplacementSchedule::getSubScheduleData());
     }
 
     public function update(Request $request) {
-        $schedule = SubSchedule::getCurrentSchedule();
+        $schedule = ReplacementSchedule::getCurrentSchedule();
         $schedule->content = $request->get('content');
         $schedule->save();
         return redirect()->back();

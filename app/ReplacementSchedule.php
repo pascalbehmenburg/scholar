@@ -6,9 +6,8 @@ use DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Request;
 
-class SubSchedule extends Model
+class ReplacementSchedule extends Model
 {
-    protected $table = 'substitution_schedule';
     public $timestamps = false;
 
     public static function getSubScheduleData() {

@@ -8,14 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Schedule extends Model
 {
-    protected $table = 'schedule';
     public $timestamps = false;
+
+    public function schoolClass()
+    {
+        return $this->belongsTo(SchoolClass::class);
+    }
+
+
 
     public static function getScheduleData($id) {
         return Schedule::find($id)->content;
     }
 
-    public static function getScheduleIdByUser() {
-        return Schedule::find(SchoolClass::getSchoolClassById(Auth::user()->class_id)->schedule_id)->id;
+    public static function getScheduleIdByUser()
+    {
+        /** @var User $user */
+        $user = Auth::user();
+
+
+        return Schedule::find(SchoolClass::getSchoolClassById()->schedule_id)->id;
     }
 }
