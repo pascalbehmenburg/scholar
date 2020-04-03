@@ -26,7 +26,7 @@ class RolesTableSeeder extends Seeder
         $admin->givePermissionTo('user-password');
         $admin->givePermissionTo('user-email');
         $admin->givePermissionTo('schedule-update');
-        $admin->givePermissionTo('substitution-schedule-update');
+        $admin->givePermissionTo('replacement-schedule-update');
         $admin->givePermissionTo('user-administrate');
     }
 }

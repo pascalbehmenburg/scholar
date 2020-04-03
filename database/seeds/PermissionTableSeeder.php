@@ -16,7 +16,7 @@ class PermissionTableSeeder extends Seeder
             'user-email',
             'user-edit',
             'user-administrate',
-            'substitution-schedule-update',
+            'replacement-schedule-update',
             'schedule-update'
         ];
 

@@ -12,13 +12,23 @@ class Schedule extends Model
 
     public function schoolClass()
     {
-        return $this->belongsTo(SchoolClass::class);
+        return $this->belongsTo(SchoolClass::class, 'schedule_id');
     }
 
-
-
+    /**
+     * Implemented to allow the access to other schedules than the own one (administrative purposes)
+     */
     public static function getScheduleData($id) {
-        return Schedule::find($id)->content;
+        /** @var Schedule $schedule */
+        $schedule = Schedule::find($id);
+        
+        if (isset($schedule)) {
+            $schedule->content;
+        }
+
+        //return empty default
+        //TO-DO: display error message on /schedule/1 if we reach this return
+        return 1;
     }
 
     public static function getScheduleIdByUser()
@@ -26,7 +36,6 @@ class Schedule extends Model
         /** @var User $user */
         $user = Auth::user();
 
-
-        return Schedule::find(SchoolClass::getSchoolClassById()->schedule_id)->id;
+        return ($user->schoolClass->schedule)->id;
     }
 }

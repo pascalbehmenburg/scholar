@@ -17,7 +17,7 @@
                 <a class="nav-link" href="/schedule/{{App\Schedule::getScheduleIdByUser()}}">Schedule</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/substitution-schedule">Substitution Schedule</a>
+                <a class="nav-link" href="/replacement-schedule">Replacement Schedule</a>
             </li>
             @can('user-administrate')
             <li class="nav-item">

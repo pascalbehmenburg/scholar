@@ -10,11 +10,11 @@ class ReplacementSchedule extends Model
 {
     public $timestamps = false;
 
-    public static function getSubScheduleData() {
-        return self::find(DB::table('substitution_schedule')->max('id'))->content;
+    public static function getScheduleData() {
+        return self::find(DB::table('replacement_schedules')->max('id'))->content;
     }
 
-    public static function getCurrentSchedule() {
-        return self::find(DB::table('substitution_schedule')->max('id'));
+    public static function getSchedule() {
+        return self::find(DB::table('replacement_schedules')->max('id'));
     }
 }

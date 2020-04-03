@@ -11,6 +11,10 @@ class User extends Authenticatable
     use Notifiable;
     use HasRoles;
 
+    public function schoolClass() {
+        return $this->hasOne(SchoolClass::class, 'id');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

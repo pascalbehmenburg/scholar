@@ -6,7 +6,7 @@ use App\Schedule;
 use App\ReplacementSchedule;
 use Illuminate\Http\Request;
 
-class SubScheduleController extends Controller
+class ReplacementScheduleController extends Controller
 {
     public function __construct()
     {
@@ -20,11 +20,15 @@ class SubScheduleController extends Controller
      */
     public function index()
     {
-        return view('/substitution-schedule')->with('sub_schedule_content', ReplacementSchedule::getSubScheduleData());
+        return view('/replacement-schedule')->with('replacement_schedule_content', ReplacementSchedule::getScheduleData());
     }
 
     public function update(Request $request) {
-        $schedule = ReplacementSchedule::getCurrentSchedule();
+        $request::validate([
+            'content' => ['required', 'JSON']
+        ]);
+
+        $schedule = ReplacementSchedule::getSchedule();
         $schedule->content = $request->get('content');
         $schedule->save();
         return redirect()->back();

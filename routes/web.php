@@ -26,7 +26,7 @@ Route::group(['middleware' => ['auth']], static function() {
     Route::group(['middleware' => ['permission:user-administrate']], static function() {Route::get('/users/data', 'UsersController@anyData');});
 
     Route::get('schedule/{scheduleId}', 'ScheduleController@index');
-    Route::get('substitution-schedule', 'SubScheduleController@index');
+    Route::get('replacement-schedule', 'ReplacementScheduleController@index');
     Route::group(['middleware' => ['permission:schedule-update']], static function(){Route::post('schedule/update', 'ScheduleController@update');});
-    Route::group(['middleware' => ['permission:substitution-schedule-update']], static function(){Route::post('substitution-schedule/update', 'SubScheduleController@update');});
+    Route::group(['middleware' => ['permission:replacement-schedule-update']], static function(){Route::post('replacement-schedule/update', 'ReplacementScheduleController@update');});
 });

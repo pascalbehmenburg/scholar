@@ -5,7 +5,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/b-html5-1.5.6/b-print-1.5.6/r-2.2.2/rg-1.1.0/sl-1.3.0/datatables.min.js"></script>
-    <script src="{{asset('js/dataTables.altEditor.free.js')}}"></script>
+    <!-- TO-DO: fix datatables editor <script type="text/javascript" src="../js/dataTables.altEditor.free.js"></script> -->
     <script type="text/javascript" class="init">
         $(function () {
             const table = $('#users').dataTable( {
@@ -19,12 +19,12 @@
                     {extend: 'print', className: 'btn-sm btn-primary', text: 'Print', name: 'print', init: function(api, node, config) {$(node).removeClass('btn-secondary')}},
                     {extend: 'csv', className: 'btn-sm btn-primary', text: 'CSV', name: 'csv', init: function(api, node, config) {$(node).removeClass('btn-secondary')}},
                     {extend: 'pdf', className: 'btn-sm btn-primary', text: 'PDF', name: 'pdf', init: function(api, node, config) {$(node).removeClass('btn-secondary')}},
-                    {className: 'btn-sm btn-success', text: 'Add', name: 'add'},
-                    {className: 'btn-sm btn-warning', text: 'Edit', name: 'edit'},
-                    {className: 'btn-sm btn-danger', text: 'Delete', name: 'delete'}
+                    //{className: 'btn-sm btn-success', text: 'Add', name: 'add'},
+                    //{className: 'btn-sm btn-warning', text: 'Edit', name: 'edit'},
+                    //{className: 'btn-sm btn-danger', text: 'Delete', name: 'delete'}
                 ],
                 columns: [
-                    { data: "id", name: "id"},
+                    { data: "id", name: "id", id: "DT_RowId"},
                     { data: "email", name: "email"},
                     { data: "forename", name: "forename"},
                     { data: "surname", name: "surname" },
