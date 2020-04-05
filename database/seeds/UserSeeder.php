@@ -13,6 +13,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        //ATTENTION: remove this user when going into production.
         $user = App\User::create([
             'email' => 'admin@scholar.com',
             'forename' => 'John',
@@ -26,5 +27,7 @@ class UserSeeder extends Seeder
 
         $user->assignRole('admin');
         $user->save();
+
+        $users = factory(App\User::class, 20)->create();
     }
 }
