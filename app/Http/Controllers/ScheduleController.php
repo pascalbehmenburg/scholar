@@ -19,10 +19,9 @@ class ScheduleController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the schedule by passing its id.
      *
-     * @param $scheduleID
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @param $scheduleID ID of the table to be shown.
      */
     public function index($scheduleId)
     {
@@ -34,6 +33,12 @@ class ScheduleController extends Controller
         return redirect()->back()->withErrors(['schedule' => 'There is no schedule corresponding to the schedule id.']);
     }
 
+    /**
+     *  Updates the JSON data of the currently selected schedule.
+     *  Used by admins to make changes in the schedule.
+     * 
+     *  @param $request Request containing the id of the schedule and the new content.
+     */
     public function update(Request $request) {
         $request::validate([
             'id' => ['required', 'Integer'],

@@ -17,7 +17,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the starting page.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -26,6 +26,11 @@ class HomeController extends Controller
         return view('home');
     }
 
+    /**
+     * Show the starting page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function home()
     {
         return view('home');

@@ -20,7 +20,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the profile page.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -29,6 +29,11 @@ class ProfileController extends Controller
         return view('/profile');
     }
 
+    /**
+     *  Changes the password of the currently authenticated user.
+     *  
+     *  @param $request Request containing the current-password and the new 'password'.
+     */
     public function password(Request $request)
     {
         if (!Hash::check($request::get('current-password'), Auth::user()->password)) {
@@ -46,6 +51,15 @@ class ProfileController extends Controller
         return redirect('profile');
     }
 
+    /**
+     *  Changes the E-Mail of the currently authenticated user.
+     *  
+     *  TO-DO: Add some way of authentication by using a mail server to send confirmations or at least using the password to confirm the operation.
+     *         This is important to prevent someone from changing the E-Mail without permission
+     *         for example when an attacker somehow hijacked the users session.
+     *  
+     *  @param $request Request containing the current-password and the new 'password'.
+     */
     public function email(Request $request)
     {
         $request::validate([
@@ -58,6 +72,13 @@ class ProfileController extends Controller
         return redirect('profile');
     }
 
+    /**
+     *  Changes the users personal information.
+     *  
+     *  TO-DO: Add some way of validation. Also: Should a student be allowed to edit this info? 
+     *  
+     *  @param $request Request containing the current-password and the new 'password'.
+     */
     public function edit(Request $request)
     {
         $request::validate([

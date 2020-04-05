@@ -14,7 +14,7 @@ class ReplacementScheduleController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the replacement schedule.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -23,6 +23,10 @@ class ReplacementScheduleController extends Controller
         return view('/replacement-schedule')->with('replacement_schedule_content', ReplacementSchedule::getScheduleData());
     }
 
+    /**
+     *  Update the replacement schedule.
+     *  @param $request Request containing the content of the new ReplacementSchedule.
+     */
     public function update(Request $request) {
         $request::validate([
             'content' => ['required', 'JSON']

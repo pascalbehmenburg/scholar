@@ -11,6 +11,12 @@ class User extends Authenticatable
     use Notifiable;
     use HasRoles;
 
+    /**
+     *  Relation: A user has one school class.
+     * 
+     *  Note: Administrators, school staff and teachers also need a school class.
+     *        This could be the empty standard id=1 or a custom one with a name like "Administration" or "College Teachers" and so on.
+     */
     public function schoolClass() {
         return $this->hasOne(SchoolClass::class, 'id');
     }

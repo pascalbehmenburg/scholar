@@ -9,7 +9,7 @@ use Yajra\Datatables\Datatables;
 class UsersController extends Controller
 {
     /**
-     * Displays datatables front end view
+     * Displays datatables front end view.
      *
      * @return \Illuminate\View\View
      */
@@ -19,7 +19,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Process datatables ajax request.
+     * Process datatables ajax request. To display all data in the DataTable.
      *
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception

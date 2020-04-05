@@ -10,13 +10,17 @@ class Schedule extends Model
 {
     public $timestamps = false;
 
+    /**
+     *  Relation: Schedule belongs to SchoolClass.
+     */
     public function schoolClass()
     {
         return $this->belongsTo(SchoolClass::class, 'schedule_id');
     }
 
     /**
-     * Implemented to allow the access to other schedules than the own one (administrative purposes)
+     *  Allows the access to data of schedules by passing the id.
+     *  Implemented to allow admins accessing other tables than the own one.
      */
     public static function getScheduleData($id) {
         /** @var Schedule $schedule */
@@ -31,6 +35,10 @@ class Schedule extends Model
         return 1;
     }
 
+    /**
+     *  Returns the id of the schedule from the currently authenticated user.
+     *  Used to build the url /schedule/{id} for the current user.
+     */
     public static function getScheduleIdByUser()
     {
         /** @var User $user */
